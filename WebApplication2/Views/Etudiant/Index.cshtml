@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h3>@ViewBag.Message</h3>
+<p>Il y a @ViewData["EtudiantsCount"] etudiants</p>
+
+<ul>
+    @foreach (var etudiant in ViewData["EtudiantsList"] as List<EtudiantModel>)
+{
+    <li>@etudiant.Name @etudiant.Id</li>
+}
+</ul>
+
+@Html.ActionLink("Create New", "Details", "Etudiant");
+@{
+    TempData.Keep("Message");
+}
+<br/>
+<a asp-controller="Etudiant" asp-action="Details">Details</a>
+
