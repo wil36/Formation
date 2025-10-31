@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
@@ -41,6 +42,11 @@ namespace WebApplication2.Controllers
             }
             ViewBag.Name = name;
             return View();
+        }
+
+        public IActionResult UserDetail() { 
+            var user =new LoginViewModel(){ Username = "Wilfrid", Password = "123456"};
+            return View(user);
         }
     }
 }
